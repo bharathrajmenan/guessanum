@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess A Number</title>
+    <style>
+        body {
+            background-color: #f8f1e5;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #d66e56;
+            text-shadow: 2px 2px 5px #aaa;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #d66e56;
+            border-radius: 5px;
+            background-color: #fff3e3;
+            color: #d66e56;
+            width: 150px;
+            margin: 10px 0;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background-color: #d66e56;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #b55a45;
+        }
+
+        p {
+            font-size: 20px;
+            font-weight: bold;
+            color: #8a4b3f;
+        }
+
+        #result {
+            font-size: 24px;
+            color: #ff7f50;
+            margin-top: 10px;
+        }
+
+        #point {
+            color: #b55a45;
+        }
+
+        .alert-box {
+            padding: 20px;
+            background-color: #ffebcd;
+            border-radius: 5px;
+            border: 2px solid #d66e56;
+            color: #d66e56;
+            width: 300px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Guess A Number</h1>
+    <div class="alert-box" id="result">right or wrong</div>
+    <input id="userinput" type="number" placeholder="Enter a number" />
+    <button id="check" onclick="game()">Check</button>
+    <p id="point">Score: 10</p>
+
+    <script>
+        var userinput = document.getElementById("userinput");
+        var result = document.getElementById("result");
+        var hfg = document.getElementById("point");
+        var hfgg = 10;
+
+        function game() {
+            var sysgen = Math.floor(Math.random() * 10) + 1;
+            var ent = parseInt(userinput.value);
+            if (sysgen == ent) {
+                result.textContent = "RIGHT!";
+                result.style.color = "green";
+                alert("YOU WON!");
+            } else {
+                result.textContent = "WRONG!";
+                result.style.color = "red";
+                hfgg = hfgg - 1;
+                hfg.textContent = "Score: " + hfgg;
+            }
+        }
+    </script>
+</body>
+
+</html>
